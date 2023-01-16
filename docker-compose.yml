@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  zomboid:
+    build: .
+    stdin_open: true
+    user: root
+    environment:
+      - SERVERNAME=zomboid
+    ports:
+     - "16261:16261/udp"
+     - "16262:16262/udp"
+    volumes:
+     - ./server:/root/Zomboid
