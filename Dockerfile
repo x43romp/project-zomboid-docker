@@ -1,4 +1,4 @@
-FROM steamcmd/steamcmd:ubuntu-22 as zomboid
+FROM steamcmd/steamcmd:ubuntu-24 as zomboid
 
 WORKDIR /pz
 
@@ -7,6 +7,4 @@ RUN steamcmd +runscript /pz/update_zomboid.txt
 
 ###################################################
 FROM zomboid
-
-RUN echo ${SERVERNAME}
-ENTRYPOINT /opt/pzserver/start-server.sh -servername $SERVERNAME
+ENTRYPOINT /opt/pzserver/start-server.sh -servername $SERVERNAME -adminpassword hello $ADMINPWD -ip $SERVERIP -port $SERVERPORT -udpport $SERVERUDP -steamvac $STEAMVAC

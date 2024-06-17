@@ -2,11 +2,11 @@ version: '3'
 
 services:
   zomboid:
+    image: romp/zomboid:latest
     build: .
     stdin_open: true
     user: root
-    environment:
-      - SERVERNAME=zomboid
+    env_file: "server.env"
     ports:
      - "16261:16261/udp"
      - "16262:16262/udp"
