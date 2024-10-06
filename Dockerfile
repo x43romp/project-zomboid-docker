@@ -7,4 +7,10 @@ RUN steamcmd +runscript /pz/update_zomboid.txt
 
 ###################################################
 FROM zomboid
-ENTRYPOINT /opt/pzserver/start-server.sh -servername $SERVERNAME -adminpassword hello $ADMINPWD -ip $SERVERIP -port $SERVERPORT -udpport $SERVERUDP -steamvac $STEAMVAC
+ENTRYPOINT /opt/pzserver/start-server.sh \
+    -servername $SERVERNAME \
+    -adminpassword  $ADMINPWD \
+    -ip $SERVERIP \
+    -port $SERVERPORT \
+    -udpport $SERVERUDP \
+    -steamvac $STEAMVAC
