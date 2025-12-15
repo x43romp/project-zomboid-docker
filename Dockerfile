@@ -1,8 +1,9 @@
 FROM steamcmd/steamcmd:ubuntu-24 as zomboid
+ARG VERSION="public"
 
 WORKDIR /pz
 
-COPY update_zomboid.txt /pz/update_zomboid.txt
+COPY versions/${VERSION}.txt /pz/update_zomboid.txt
 RUN steamcmd +runscript /pz/update_zomboid.txt
 
 ###################################################
